@@ -1,0 +1,51 @@
+// HTML 檔案
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品上架</title>
+</head>
+<body>
+    <form id="productForm">
+        <input type="text" id="productName" placeholder="商品名稱">
+        <input type="number" id="productPrice" placeholder="價格">
+        <textarea id="productDescription" placeholder="描述"></textarea>
+        <input type="file" id="productImage" accept="image/*">
+        <button type="submit">上架商品</button>
+    </form>
+
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productName = document.getElementById('productName').value;
+            const productPrice = document.getElementById('productPrice').value;
+            const productDescription = document.getElementById('productDescription').value;
+            const productImage = document.getElementById('productImage').files[0];
+            
+            // 將商品資訊發送到後端
+            const formData = new FormData();
+            formData.append('productName', productName);
+            formData.append('productPrice', productPrice);
+            formData.append('productDescription', productDescription);
+            formData.append('productImage', productImage);
+
+            fetch('/api/addProduct', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('商品上架成功！');
+                    // 清空表單
+                    document.getElementById('productForm').reset();
+                } else {
+                    alert('商品上架失敗！');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+    <script src="text.java"></script>
+</body>
+</html>

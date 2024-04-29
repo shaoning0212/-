@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue購物車</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" href="style01.css">
+</head>
+<body>
+    <h1>購物車</h1>
+    <div id="app">
+        <div class="container">
+            <div class="item_header">
+                <div class="item_detail">商品</div>
+                <div class="price">單價</div>
+                <div class="count">數量</div> 
+                <div class="amount">總計</div>
+                <div class="operate">操作</div>
+            </div>
+            <div class="item_container" v-for="(item, index) in itemList" :key="item.id" >
+                <div class="item_header item_body">
+                    <div class="item_detail">
+                        <img :src="item.imgUrl" alt="">
+                        <div class="name">{{item.itemName}}</div>
+                    </div>
+                    
+                    <div class="price"><span>$</span>{{item.price}}</div>
+                    <div class="count">
+                        <button @click="decrementCount(item)">-</button>
+                        {{item.count}}
+                        <button @click="incrementCount(item)">+</button>
+                    </div> 
+                    <div class="amount">{{item.price * item.count}}</div>
+                    <div class="operate">
+                        <button @click="removeItem(index)">刪除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                itemList: [
+                    { id: 1, itemName: '商品1', price: 10, count: 1, imgUrl: 'item1.jpg' },
+                    { id: 2, itemName: '商品2', price: 20, count: 1, imgUrl: 'item2.jpg' },
+                    { id: 3, itemName: '商品3', price: 15, count: 1, imgUrl: 'item3.jpg' }
+                ]
+            },
+            methods: {
+                decrementCount(item) {
+                    if (item.count > 1) {
+                        item.count--;
+                    }
+                },
+                incrementCount(item) {
+                    item.count++;
+                },
+                removeItem(index) {
+                    this.itemList.splice(index, 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

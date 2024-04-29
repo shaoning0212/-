@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow-sm py-4">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-center justify-between">
+                    <div class="text-xl font-semibold">LOGO</div>
+                    <div class="flex items-center space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-gray-800">新增商品</a>
+                        <a href="#" class="text-gray-600 hover:text-gray-800">賣家專區</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main content -->
+        <main class="flex-grow">
+            <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+                    <form>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Left column -->
+                            <div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-image">
+                                        商品圖片：
+                                    </label>
+                                    <input type="file" id="product-image" name="product-image" class="block w-full text-sm text-gray-500
+                                    file:mr-4 file:py-2 file:px-4
+                                    file:rounded-full file:border-0
+                                    file:text-sm file:font-semibold
+                                    file:bg-violet-50 file:text-violet-700
+                                    hover:file:bg-violet-100"/>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-name">
+                                        商品名稱：
+                                    </label>
+                                    <input type="text" id="product-name" name="product-name" class="shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full" placeholder="輸入商品名稱"/>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-category">
+                                        商品類別：
+                                    </label>
+                                    <select id="product-category" name="product-category" class="shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full">
+                                        <option value="">選擇商品類別</option>
+                                        <option value="clothing">服裝</option>
+                                        <option value="electronics">電子產品</option>
+                                        <option value="furniture">家具</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-specs">
+                                        商品規格：
+                                    </label>
+                                    <div id="product-specs" class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <input type="text" name="specs[]" class="shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full" placeholder="規格1"/>
+                                            <button type="button" class="text-white bg-blue-500 hover:bg-blue-600 rounded-md px-4 py-2">新增更多尺寸</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-price">
+                                        商品價格：
+                                    </label>
+                                    <input type="number" id="product-price" name="product-price" class="shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full" placeholder="輸入商品價格"/>
+                                </div>
+                            </div>
+
+                            <!-- Right column -->
+                            <div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 text-sm font-medium mb-2" for="product-description">
+                                        商品描述：
+                                    </label>
+                                    <textarea id="product-description" name="product-description" rows="4" class="shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full" placeholder="輸入商品描述"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action buttons -->
+                        <div class="flex justify-end space-x-4 mt-6">
+                            <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md">取消</button>
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">儲存上架</button>
+                            <button type="button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-md">儲存下架</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // JavaScript to handle adding more specs and sizes
+        const specsContainer = document.getElementById('product-specs');
+        const addMoreSizesBtn = specsContainer.querySelector('button');
+
+        addMoreSizesBtn.addEventListener('click', () => {
+            const newSpecInput = document.createElement('input');
+            newSpecInput.type = 'text';
+            newSpecInput.name = 'specs[]';
+            newSpecInput.placeholder = `規格${specsContainer.children.length + 1}`;
+            newSpecInput.className = 'shadow-sm bg-white border-gray-300 rounded-md p-2 block w-full';
+
+            const newSpecDiv = document.createElement('div');
+            newSpecDiv.className = 'flex items-center space-x-2';
+            newSpecDiv.appendChild(newSpecInput);
+
+            specsContainer.appendChild(newSpecDiv);
+        });
+    </script>
+</body>
+</html>

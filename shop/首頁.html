@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store Prototype</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .product-image {
+            background-color: #e2e8f0; /* Placeholder color for product images */
+            height: 200px; /* Fixed height for product image placeholders */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-4">
+                    <div class="flex items-center py-5 px-2">
+                        <button class="text-gray-700 hover:text-gray-900">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                        <span class="font-bold">Logo</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">首頁</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">產品</a>
+                        <a href="#" class="py-5 px-3 text-gray-700 hover:text-gray-900">關於</a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="#" class="py-2 px-3 bg-yellow-400 text-yellow-900 rounded hover:bg-yellow-500 transition duration-300">登入 / 註冊</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-yellow-200 text-yellow-900 text-center py-8">
+        <h1 class="text-3xl font-bold">11.11活動優惠專區</h1>
+    </header>
+
+    <main class="my-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">大家都在買</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Product cards -->
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$160</h3>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$149</h3>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$638</h3>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$199</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-10">
+                <h2 class="text-2xl font-bold mb-4">猜你喜歡</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Product cards -->
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$160</h3>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$160</h3>
+                    </div>
+                    <div class="bg-white shadow-md rounded-lg p-4">
+                        <div class="product-image rounded w-full mb-2"></div>
+                        <h3 class="text-lg font-semibold">$160</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold mb-4">關於我們</h2>
+                <p class="text-gray-600">我們致力於提供最優質的產品和服務，讓顧客享受最佳的購物體驗。</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-white shadow-inner py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p class="text-gray-600">&copy; 2023 Online Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle script
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        mobileMenuButton.addEventListener('click', () => {
+            const menu = document.querySelector('.mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

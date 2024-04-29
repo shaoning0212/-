@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Management</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .input-field {
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  .input-field:focus {
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 1px #a5b4fc;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto p-8">
+  <div class="flex flex-wrap bg-white shadow-lg rounded-lg">
+    <div class="w-full lg:w-1/4 px-4 py-6 border-r border-gray-200">
+      <div class="mb-4">
+        <p class="font-bold text-xl">LOGO</p>
+      </div>
+      <div class="mb-4">
+        <p class="text-gray-700 text-sm">商品管理 ▼</p>
+        <p class="text-gray-700 text-sm">訂單管理 ▼</p>
+        <p class="text-gray-700 text-sm">客戶管理 ▼</p>
+        <p class="text-gray-700 text-sm">統計報表 ▼</p>
+      </div>
+    </div>
+    <div class="w-full lg:w-3/4 px-4">
+      <div class="mb-4">
+        <h2 class="text-2xl font-semibold">新增商品</h2>
+      </div>
+      <form>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品圖片：</label>
+          <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">選擇檔案</button>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品名稱：</label>
+          <input type="text" class="input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品類別：</label>
+          <input type="text" class="input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品規格：</label>
+          <div class="flex items-center mb-2">
+            <input type="text" placeholder="1" class="input-field shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-2">
+            <input type="text" placeholder="款式" class="input-field shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mr-2">
+            <input type="text" placeholder="尺寸" class="input-field shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <button type="button" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">新增更多尺寸</button>
+          </div>
+          <button type="button" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 focus:outline-none">新增其他規格</button>
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品價格：</label>
+          <input type="text" class="input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">商品描述：</label>
+          <textarea class="input-field shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <div class="flex items-center justify-between">
+          <button type="button" class="px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 focus:outline-none">取消</button>
+          <button type="button" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 focus:outline-none">儲存上架</button>
+          <button type="button" class="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 focus:outline-none">儲存下架</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  // Add your JavaScript here if needed
+</script>
+</body>
+</html>

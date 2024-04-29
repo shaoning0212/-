@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Open+Sans', sans-serif;
+  }
+  .menu-item:not(:last-child) {
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .submenu {
+    display: none;
+  }
+  .menu-item:hover .submenu {
+    display: block;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="min-h-screen flex">
+  <!-- Sidebar -->
+  <div class="w-64 bg-white shadow-md">
+    <div class="px-6 py-4">
+      <a href="index.html"><div class="font-bold text-xl">LOGO</div></a>
+    </div>
+    <ul class="mt-6">
+      <li class="menu-item py-2 px-6 hover:bg-gray-50">
+        <div class="flex justify-between items-center">
+          <span>商品管理</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <ul class="submenu mt-2 ml-4 text-sm">
+          <li class="py-1">我的商品</li>
+          <a href="newproduct.html">新增商品</a>
+        </ul>
+      </li>
+
+      <li class="menu-item py-2 px-6 hover:bg-gray-50">
+        <div class="flex justify-between items-center">
+          <span>訂單管理</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <ul class="submenu mt-2 ml-4 text-sm">
+          <li class="py-1">我的商品</li>
+          <li class="py-1">新增商品</li>
+        </ul>
+      </li>
+
+      <li class="menu-item py-2 px-6 hover:bg-gray-50">
+        <div class="flex justify-between items-center">
+          <span>賣場管理</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+        <ul class="submenu mt-2 ml-4 text-sm">
+          <li class="py-1">我的商品</li>
+          <li class="py-1">新增商品</li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+  <!-- Main Content -->
+ 
+  <div class="flex-1 p-6">
+    <div class="flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">賣家專區 > 新增商品</h1>
+    </div>
+    <div class="mt-8">
+
+      <!-- Content goes here -->
+    </div>
+  
+      <!-- 商品上架表單 -->
+      <section class="col-span-2">
+        <form id="productForm">
+            <div class="mb-4">
+                <label for="productImage" class="block text-gray-700 text-sm font-bold mb-2">商品圖片：</label>
+                <input type="file" id="productImage" name="productImage" class="border rounded p-2 w-full">
+            </div>
+            <div class="mb-4">
+                <label for="productName" class="block text-gray-700 text-sm font-bold mb-2">商品名稱：</label>
+                <input type="text" id="productName" name="productName" class="border rounded p-2 w-full">
+            </div>
+            <div class="mb-4">
+                <label for="productCategory" class="block text-gray-700 text-sm font-bold mb-2">商品類別：</label>
+                <select id="productCategory" name="productCategory" class="border rounded p-2 w-full">
+                    <option value="1">類別1</option>
+                    <option value="2">類別2</option>
+                    <option value="3">類別3</option>
+                </select>
+            </div>
+            <div class="mb-4" id="sizeInputs">
+                <label class="block text-gray-700 text-sm font-bold mb-2">商品規格：</label>
+                <div class="flex items-center space-x-2 mb-2">
+                    <input type="number" class="border rounded p-2" placeholder="數量">
+                    <input type="text" class="border rounded p-2" placeholder="款式">
+                    <button type="button" id="addSpecButton" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">新增其他規格</button>
+                </div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">商品尺寸：</label>
+                <div class="flex items-center space-x-2 mb-2">
+                    <input type="text" class="border rounded p-2" placeholder="尺寸">
+                    <button type="button" id="addSizeButton" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">新增更多尺寸</button>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="productPrice" class="block text-gray-700 text-sm font-bold mb-2">商品價格：</label>
+                <input type="text" id="productPrice" name="productPrice" class="border rounded p-2 w-full">
+            </div>
+            <div class="mb-4">
+                <label for="productDescription" class="block text-gray-700 text-sm font-bold mb-2">商品描述：</label>
+                <textarea id="productDescription" name="productDescription" class="border rounded p-2 w-full" rows="4"></textarea>
+            </div>
+            <div class="flex items-center justify-end space-x-4">
+                <button type="button" id="cancelButton" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">取消</button>
+                <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">儲存上架</button>
+                <button type="button" id="saveOfflineButton" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">儲存下架</button>
+            </div>
+        </form>
+    </section>
+  
+<script src="text.java"></script>
+<script src="newproduct.js"></script>
+  
+  </div>
+</div>
+<script>
+  // Script for interactive elements can go here
+</script>
+</body>
+</html>

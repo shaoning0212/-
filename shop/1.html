@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-container {
+            width: 100%;
+        }
+
+        .product-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 将商品卡片顶部对齐 */
+            gap: 20px; /* 调整商品卡片之间的间距 */
+        }
+
+        .card {
+            width: calc(33.33% - 20px); /* 将每个商品卡片宽度调整为1/3，并减去间距 */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .p-4 {
+            padding: 1rem;
+        }
+
+        .text-lg {
+            font-size: 1.25rem;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <header class="header">
+        <!-- Your header content -->
+    </header>
+   
+    <div class="container">
+        <div class="carousel-container">
+            <!-- Your carousel code -->
+        </div>
+        
+        <div class="product-container">
+            <!-- Repeating product card -->
+            <div class="card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="location.href='next-page.html';">
+                <img src="https://source.unsplash.com/random/300x200?product" alt="Product Image">
+                <div class="p-4">
+                    <h3 class="font-semibold text-lg mb-2">Product Name</h3>
+                    <p class="text-gray-700 mb-4">Description of the product goes here. It's brief but informative.</p>
+                    <div class="text-lg font-bold">$299</div>
+                </div>
+            </div>
+            <!-- Repeat other cards with different content -->
+        </div>
+    </div>
+</body>
+</html>
